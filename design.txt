@@ -1,0 +1,64 @@
+- Each object has an owner, short and long description
+- Each object has comments (disqus?)
+
+Event:
+        - Location::location
+        - Date::date
+        - List<SocialMediaAsset>::social_media_assets
+        - List<EventImage>::images
+        - List<EventVideo>::videos
+
+
+EventVideo:
+        - Event::event
+        - Video::video
+
+EventImage:
+        - Event::event
+        - Image::image
+
+Cop:
+        - String::name
+        - String::family_name
+        - Date::born
+        - Rank::rank
+        - PoliceKind::police_kind
+        - List<SocialMediaAsset>::social_media_assets
+        - List<CopEventAssociation>::events
+        - Image::profile_image
+        - List<Link>::links
+        - List<CopVideoAssociation>::videos
+
+PoliceKind:
+        [IDF, POLICE, YASAM, MAGAV]
+
+CopEventAssociation:
+        - Cop::cop
+        - Event::event
+
+CopVideoAssociation:
+        - Cop::cop
+        - Video::video
+
+SocialMediaAsset:
+        - Link
+        - SocialMediaAssetType::type
+Video:
+        - VideoProviderType[youtube, vimeo, facebok]::provider
+        - Link
+
+VideoProviderType:
+        [youtube, vimeo, facebok]
+
+Base objects:
+- Link:
+        - String::the_link
+- Image:
+        - Image::the_image
+- Location:
+        - String::the_location
+        - GeoField::lat_long (see Google geocoding, Yahoo! placefinder)
+- Rank: 
+        - PoliceRank[http://he.wikipedia.org/wiki/%D7%93%D7%A8%D7%92%D7%95%D7%AA_%D7%9E%D7%A9%D7%98%D7%A8%D7%AA_%D7%99%D7%A9%D7%A8%D7%90%D7%9C]
+        - IDFRank[http://he.wikipedia.org/wiki/%D7%93%D7%A8%D7%92%D7%95%D7%AA_%D7%A6%D7%94%22%D7%9C]
+                
